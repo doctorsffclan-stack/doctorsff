@@ -1,0 +1,169 @@
+.wrap {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(ellipse 80% 60% at 50% -10%, #1c0d00 0%, #07090E 65%);
+  padding: 24px 16px;
+}
+
+.grid {
+  position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(212,175,55,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(212,175,55,.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.particles { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.particle {
+  position: absolute; bottom: -6px;
+  background: var(--gold); border-radius: 50%; opacity: 0;
+  animation: particle linear infinite;
+}
+
+/* Main */
+.main {
+  position: relative; z-index: 2;
+  display: flex; flex-direction: column; align-items: center;
+  gap: 28px; width: 100%; max-width: 480px;
+  animation: fadeUp .7s ease both;
+}
+
+/* Logo */
+.logoWrap { position: relative; display: flex; align-items: center; justify-content: center; }
+
+.logoRing {
+  position: absolute; width: 170px; height: 170px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(212,175,55,.18) 0%, transparent 70%);
+  animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse { 0%,100%{transform:scale(1);opacity:.7} 50%{transform:scale(1.15);opacity:1} }
+
+.logoCircle {
+  position: relative; width: 130px; height: 130px; border-radius: 50%;
+  border: 2px solid var(--gold); overflow: hidden;
+  box-shadow: 0 0 28px rgba(212,175,55,.4), inset 0 0 18px rgba(0,0,0,.6);
+  animation: float 4s ease-in-out infinite;
+}
+
+.logoImg { width: 100%; height: 100%; object-fit: cover; }
+
+.logoFallback {
+  display: none; width: 100%; height: 100%;
+  align-items: center; justify-content: center;
+  background: linear-gradient(135deg,#1a1200,#0D1117);
+  font-family: 'Cairo',sans-serif; font-weight: 900;
+  font-size: 20px; color: var(--gold); letter-spacing: 2px;
+}
+
+/* Clan */
+.clanBlock { text-align: center; }
+.tagline { font-size: 12px; color: var(--gold-dark); letter-spacing: 5px; font-weight: 300; }
+.clanName {
+  font-family: 'Cairo',sans-serif;
+  font-size: clamp(36px,9vw,56px); font-weight: 900;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-dark));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text; letter-spacing: 7px; line-height: 1.1; margin: 4px 0;
+}
+
+/* Body */
+.body { width: 100%; }
+
+.spinner { display:flex; align-items:center; justify-content:center; height:80px; }
+.ring {
+  width: 38px; height: 38px;
+  border: 3px solid rgba(212,175,55,.2); border-top-color: var(--gold);
+  border-radius: 50%; animation: spin .8s linear infinite;
+}
+
+/* Tournament card */
+.tournamentCard {
+  background: linear-gradient(145deg, rgba(212,175,55,.07), rgba(13,17,23,.95));
+  border: 1px solid var(--border-strong); border-radius: 20px;
+  padding: 24px 20px; text-align: center; position: relative; overflow: hidden;
+  box-shadow: 0 8px 40px rgba(0,0,0,.45), inset 0 1px 0 rgba(212,175,55,.1);
+  margin-bottom: 14px;
+}
+.tournamentCard::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:2px;
+  background: linear-gradient(90deg,transparent,var(--gold),transparent);
+}
+
+.pausedCard {
+  background: linear-gradient(145deg, rgba(120,120,120,.06), rgba(13,17,23,.95));
+  border-color: rgba(150,150,150,.25);
+}
+.pausedCard::before { background: linear-gradient(90deg,transparent,#888,transparent); }
+
+.cardTop { display:flex; align-items:center; justify-content:center; gap:8px; margin-bottom:14px; }
+
+.liveDot {
+  width:9px;height:9px;border-radius:50%;background:#10B981;
+  animation:pulse2 1.2s ease-in-out infinite;
+}
+@keyframes pulse2{0%,100%{opacity:1}50%{opacity:.2}}
+.liveText { font-size:13px;font-weight:700;color:#10B981; }
+
+.pausedDot { width:9px;height:9px;border-radius:50%;background:#F59E0B; }
+.pausedText { font-size:13px;font-weight:700;color:#F59E0B; }
+
+/* Tournament name */
+.tName {
+  font-family:'Cairo',sans-serif; font-size:clamp(20px,5vw,26px); font-weight:900;
+  background: linear-gradient(135deg,var(--gold-light),var(--gold));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  margin-bottom:4px;
+  letter-spacing:1px;
+}
+
+.tType { font-size:clamp(15px,4vw,18px);font-weight:700;color:var(--text-secondary);margin-bottom:12px; }
+
+.dateInfo { font-size:14px;color:var(--text-secondary);line-height:1.9;margin-bottom:16px; }
+.dateInfo strong { color:var(--text-primary); }
+.startInfo { font-size:13px;color:var(--gold); }
+
+/* Progress */
+.teamsProgress { margin-bottom:20px;font-size:13px;color:var(--text-secondary); }
+.progressBar { height:6px;background:rgba(255,255,255,.07);border-radius:3px;overflow:hidden;margin-top:6px; }
+.progressFill { height:100%;background:linear-gradient(90deg,#10B981,#34D399);border-radius:3px;transition:width .4s; }
+
+/* Register button */
+.registerBtn {
+  position:relative; display:inline-flex; align-items:center; gap:10px;
+  background:linear-gradient(135deg,var(--gold),var(--gold-dark));
+  color:#000; border:none; padding:13px 30px; border-radius:50px;
+  font-size:17px; font-weight:800; cursor:pointer; overflow:hidden;
+  box-shadow:0 4px 20px rgba(212,175,55,.4); transition:all .3s;
+  font-family:'Tajawal',sans-serif;
+}
+.registerBtn:hover { transform:translateY(-2px); box-shadow:0 8px 28px rgba(212,175,55,.6); }
+.btnShine {
+  position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,.22),transparent);
+  border-radius:inherit;
+}
+
+.pausedMsg { font-size:14px;color:var(--text-secondary);padding:8px 0; }
+
+/* No tournament */
+.noTournament { text-align:center; padding:16px 0; }
+.swords { font-size:46px;margin-bottom:14px;filter:drop-shadow(0 0 10px rgba(212,175,55,.5)); }
+.noTitle { font-size:clamp(18px,5vw,24px);font-weight:800;color:var(--gold);margin-bottom:10px; }
+.noText { font-size:14px;color:var(--text-secondary);line-height:1.9; }
+.noText span { color:var(--text-primary);opacity:.7; }
+.sep { width:50px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:18px auto; }
+.hype { font-size:15px;color:var(--gold);font-weight:700; }
+
+/* Footer */
+.footer {
+  position:relative;z-index:2;margin-top:36px;
+  color:rgba(255,255,255,.18);font-size:12px;
+  display:flex;gap:8px;align-items:center;
+}
+.dot { color:var(--gold-dark); }

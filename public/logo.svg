@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <circle cx="50" cy="50" r="48" fill="#0D1117" stroke="#D4AF37" stroke-width="2"/>
+  <text x="50" y="36" text-anchor="middle" font-family="Arial Black" font-size="10" font-weight="900" fill="#D4AF37">DOCTORS</text>
+  <text x="50" y="52" text-anchor="middle" font-family="Arial" font-size="7" fill="#9CA3AF">FREE FIRE</text>
+  <text x="50" y="70" text-anchor="middle" font-family="Arial" font-size="22" fill="#D4AF37">⚕️</text>
+</svg>
